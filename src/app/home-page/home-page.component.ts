@@ -9,7 +9,7 @@ import { StatisticInfo } from '../shared/interfaces/statistic-info';
   styleUrls: ['./home-page.component.sass'],
 })
 export class HomePageComponent implements OnInit {
-  private allStats$: Observable<StatisticInfo>;
+  public allStats$: Observable<StatisticInfo>;
 
   constructor(private covidStatsService: CovidStatsService) {}
 
