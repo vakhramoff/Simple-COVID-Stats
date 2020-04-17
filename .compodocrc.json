@@ -1,0 +1,5 @@
+{
+  "name": "COVID App – Angular Documentation",
+  "tsconfig": "./tsconfig.json",
+  "output": "./documentation/compodoc"
+}
