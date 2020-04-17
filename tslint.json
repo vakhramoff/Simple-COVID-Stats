@@ -1,6 +1,31 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint:recommended"
+  ],
   "rules": {
+    "no-confusing-arrow": [
+      "error",
+      {
+        "allowParens": true
+      }
+    ],
+    "arrow-body-style": [
+      "error",
+      "always"
+    ],
+    "capitalized-comments": [
+      "error",
+      "always",
+      {
+        "line": {
+          "ignorePattern": "pragma|ignored"
+        },
+        "block": {
+          "ignoreInlineComments": true,
+          "ignorePattern": "ignored"
+        }
+      }
+    ],
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
@@ -16,7 +41,7 @@
       "camelCase"
     ],
     "component-selector": [
-      true,
+      false,
       "element",
       "app",
       "kebab-case"

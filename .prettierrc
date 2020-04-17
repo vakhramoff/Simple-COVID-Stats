@@ -1,0 +1,29 @@
+{
+  "bracketSpacing": true,
+  "printWidth": 140,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": "src/**/*.ts",
+      "options": {
+        "parser": "typescript"
+      }
+    },
+    {
+      "files": "*.component.html",
+      "options": {
+        "parser": "angular"
+      }
+    },
+    {
+      "files": [".prettierrc", "package.json"],
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
+}

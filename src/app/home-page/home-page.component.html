@@ -1,0 +1,19 @@
+<shared-main-layout title="Всемирная статистика по заболеваемости COVID">
+  <div class="covid-data" *ngIf="allStats$ | async as stats; else loading">
+    <div class="covid-data__row">Cases: {{ stats.cases }} (+{{ stats.todayCases }})</div>
+    <div class="covid-data__row">Deaths: {{ stats.deaths }} (+{{ stats.todayDeaths }})</div>
+    <div class="covid-data__row">Active: {{ stats.active }}</div>
+    <div class="covid-data__row">Recovered: {{ stats.recovered }}</div>
+    <div class="covid-data__row">Critical: {{ stats.critical }}</div>
+    <div class="covid-data__row">Cases per one million: {{ stats.casesPerOneMillion }}</div>
+    <div class="covid-data__row">Deaths per one million: {{ stats.deathsPerOneMillion }}</div>
+    <div class="covid-data__row">Tests: {{ stats.tests }}</div>
+    <div class="covid-data__row">Tests per one million: {{ stats.testsPerOneMillion }}</div>
+    <div class="covid-data__row">Affected countries: {{ stats.affectedCountries }}</div>
+
+    <div class="covid-data__row">Last updated: {{ stats.updated | date: 'dd.mm.yyyy hh:MM:ss' }}</div>
+  </div>
+  <ng-template #loading>
+    Loading stats data...
+  </ng-template>
+</shared-main-layout>
