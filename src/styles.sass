@@ -11,6 +11,7 @@ $font-weight-bold: 900
 $font-size-small: 0.75rem
 $font-size-medium: 1.5rem
 $font-size-large: 2.25rem
+$font-size-extra-large: 2.75rem
 
 $font-size-h1: 1.75rem
 $font-size-h2: 1.45rem
@@ -21,11 +22,22 @@ $color-light: #fff
 $color-dark: #303030
 $color-accent: #16e0bd
 
+$color-danger: #E93131
+$color-warning: #E8E43F
+$color-success: #0CB18F
+
 // Paddings
 $padding-normal: 8px
+$padding-large: 16px
+$padding-extra-large: 32px
+
+// Borders
+$radius-normal: 8px
+$radius-large: 16px
+$radius-extra-large: 32px
 
 // Shadows
-$box-shadow: 0.25em 0.25em 0.75em rgba($color-accent, .25)
+$box-shadow: 0.25em 0.25em 0.75em rgba($color-dark, .25)
 
 // Mixins
 @mixin dark-on-light
@@ -43,6 +55,9 @@ $box-shadow: 0.25em 0.25em 0.75em rgba($color-accent, .25)
 @mixin accent-on-dark
   background-color: $color-dark
   color: $color-accent
+
+@mixin shadowed-border
+  box-shadow: $box-shadow
 
 *
   box-sizing: border-box
