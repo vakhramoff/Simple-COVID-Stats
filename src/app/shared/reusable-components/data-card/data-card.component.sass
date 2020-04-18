@@ -1,0 +1,58 @@
+@import '../../../../styles'
+
+.covid-data-card
+  +shadowed-border
+  display: flex
+  flex-flow: row
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: center
+  border-radius: $radius-large
+  min-width: 300px
+  max-width: 450px
+  min-height: 175px
+  max-height: 250px
+  flex: 1 1 auto
+  padding: $padding-large
+  margin: $padding-extra-large
+
+.covid-data-card__icon
+  width: 64px
+  height: 64px
+
+.covid-data-card__title
+  font-weight: $font-weight-bold
+  font-size: $font-size-medium
+
+.covid-data-card__value
+  font-size: $font-size-extra-large
+  margin-left: auto
+
+.covid-data-card--row-delimiter
+  width: 100%
+
+.covid-data-card--danger
+  background-color: rgba($color-danger, 0.2)
+
+.covid-data-card--warning
+  background-color: rgba($color-warning, 0.2)
+
+.covid-data-card--success
+  background-color: rgba($color-success, 0.2)
+
+@media (max-width: 900px)
+  .covid-data-card
+    min-width: 200px
+    max-width: 330px
+    min-height: 125px
+    max-height: 200px
+
+  .covid-data-card__icon
+    width: 48px
+    height: 48px
+
+  .covid-data-card__title
+    font-size: $font-size-medium * 0.7
+
+  .covid-data-card__value
+    font-size: $font-size-extra-large * 0.65

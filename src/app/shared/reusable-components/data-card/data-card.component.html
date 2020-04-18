@@ -1,0 +1,14 @@
+<div
+  class="covid-data-card"
+  [ngClass]="{
+    'covid-data-card--normal': type === 'normal',
+    'covid-data-card--danger': type === 'danger',
+    'covid-data-card--warning': type === 'warning',
+    'covid-data-card--success': type === 'success'
+  }"
+>
+  <svg-icon-sprite class="covid-data-card__icon" [src]="icon"></svg-icon-sprite>
+  <div class="covid-data-card__title">{{ title }}</div>
+  <div class="covid-data-card--row-delimiter"></div>
+  <div class="covid-data-card__value">{{ value }}</div>
+</div>
