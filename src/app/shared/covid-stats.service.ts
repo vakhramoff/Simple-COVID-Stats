@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { StatisticInfo } from './interfaces/statistic-info';
 import { environment } from '../../environments/environment';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, delay, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +13,7 @@ export class CovidStatsService {
 
   public getAll(): Observable<StatisticInfo> {
     return this.http.get<StatisticInfo>(`${environment.covidApiUrl}/all`).pipe(
+      delay(20000),
       tap((data) => {
         console.log('All Stats Data:', data);
       }),
