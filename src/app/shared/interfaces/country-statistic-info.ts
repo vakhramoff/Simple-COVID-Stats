@@ -1,4 +1,4 @@
-export interface StatisticInfo {
+export interface CountryStatisticInfo {
   updated: number;
   cases: number;
   todayCases: number;
@@ -11,5 +11,11 @@ export interface StatisticInfo {
   deathsPerOneMillion: number;
   tests: number;
   testsPerOneMillion: number;
-  affectedCountries: number;
+  country: string;
+  continent: string;
+  countryInfo: {
+    lat: number;
+    long: number;
+    flag: string;
+  };
 }

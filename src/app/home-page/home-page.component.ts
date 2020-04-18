@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CovidStatsService } from '../shared/covid-stats.service';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
-import { StatisticInfo } from '../shared/interfaces/statistic-info';
+import { CovidStatsService } from '../shared/covid-stats.service';
+import { AllStatisticInfo } from '../shared/interfaces/all-statistic-info';
 
 @Component({
   selector: 'app-home-page',
@@ -9,9 +10,9 @@ import { StatisticInfo } from '../shared/interfaces/statistic-info';
   styleUrls: ['./home-page.component.sass'],
 })
 export class HomePageComponent implements OnInit {
-  public allStats$: Observable<StatisticInfo>;
+  public allStats$: Observable<AllStatisticInfo>;
 
-  constructor(private covidStatsService: CovidStatsService) {}
+  constructor(private covidStatsService: CovidStatsService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.allStats$ = this.covidStatsService.getAll();
