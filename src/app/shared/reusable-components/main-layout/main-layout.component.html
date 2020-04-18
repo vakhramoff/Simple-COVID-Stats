@@ -1,7 +1,13 @@
-<nav class="main-layout-navbar main-layout-content">
-  <h1>{{ title }}</h1>
-</nav>
+<div class="main-layout">
+  <header class="main-layout-header">
+    <h1>{{ headerTitle }}</h1>
+  </header>
 
-<div class="main-layout-container">
-  <ng-content></ng-content>
+  <section class="main-layout-container">
+    <ng-content></ng-content>
+  </section>
+
+  <footer *ngIf="footerTitle" class="main-layout-footer">
+    <h3>{{ footerTitle }}</h3>
+  </footer>
 </div>

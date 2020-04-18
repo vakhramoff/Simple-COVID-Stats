@@ -1,25 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,900|Source+Sans+Pro:300,900&display=swap')
+
+// Fonts
+$font-primary: 'Source Sans Pro', sans-serif
+$font-secondary: 'Source Code Pro', monospace
+
+$font-weight-regular: 300
+$font-weight-bold: 900
+
+
+$font-size-small: 0.75rem
+$font-size-medium: 1.5rem
+$font-size-large: 2.25rem
+
+$font-size-h1: 2.25rem
+$font-size-h2: 1.45rem
+$font-size-h3: 1.15rem
 
 // Colors
-$primary-color: #0da9d9
-$dark-color: #333333
-$light-color: #f4f4f4
-$light-grey-color: #c3c3c3
-$danger-color: #dc3545
-$success-color: #28a745
-$white-color: #fff
+$color-light: #fff
+$color-dark: #303030
+$color-accent: #16e0bd
 
 // Paddings
 $padding-normal: 8px
+
+// Shadows
+$box-shadow: 0.25em 0.25em 0.75em rgba($color-accent, .25)
+
+// Mixins
+@mixin dark-on-light
+  background-color: $color-light
+  color: $color-dark
+
+@mixin light-on-dark
+  background-color: $color-dark
+  color: $color-light
+
+@mixin accent-on-light
+  background-color: $color-light
+  color: $color-accent
+
+@mixin accent-on-dark
+  background-color: $color-dark
+  color: $color-accent
 
 *
   box-sizing: border-box
   margin: 0
   padding: 0
 
+html, body
+  width: 100%
+  height: 100%
+
 body
-  background-color: $light-grey-color
-  font-family: 'Roboto', sans-serif
+  background-color: $color-light
+  color: $color-dark
+  font-family: $font-primary
+  font-weight: $font-weight-regular
   font-size: 1rem
   line-height: 1.6
-  color: $dark-color
+
+h1
+  font-size: $font-size-h1
+h2
+  font-size: $font-size-h2
+h3
+  font-size: $font-size-h3

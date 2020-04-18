@@ -7,7 +7,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainLayoutComponent implements OnInit {
-  @Input() title = 'COVID';
+  @Input() headerTitle = 'COVID';
+  @Input() footerTitle: string;
 
   constructor() {}
 
