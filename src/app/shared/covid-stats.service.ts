@@ -14,10 +14,10 @@ export class CovidStatsService {
   public getAll(): Observable<StatisticInfo> {
     return this.http.get<StatisticInfo>(`${environment.covidApiUrl}/all`).pipe(
       tap((data) => {
-        console.log('All Stats Data:', data);
+        console.log('Полная статистика:', data);
       }),
       catchError((error) => {
-        console.warn('An error occurred while getting all statistics: ', error);
+        console.warn('Возникла ошибка при загрузке статистики для всех стран: ', error);
 
         throw error;
       }),
