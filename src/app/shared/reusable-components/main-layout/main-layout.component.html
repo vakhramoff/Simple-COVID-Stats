@@ -1,7 +1,57 @@
 <div class="main-layout">
   <header class="main-layout-header">
-    <h1 class="main-layout-header__title">{{ headerTitle }}</h1>
-    <h3 class="main-layout-header__subtitle">{{ headerSubTitle }}</h3>
+    <div class="main-layout-header__headers">
+      <h1 class="main-layout-header__title">{{ headerTitle }}</h1>
+      <h3 class="main-layout-header__subtitle">{{ headerSubTitle }}</h3>
+      <nav class="main-layout-navigation" [@toggleMenu]="menuState">
+        <ul class="main-layout-navigation__links">
+          <li>
+            <a
+              class="main-layout-navigation__link"
+              title="Мировая статистика"
+              routerLink="/"
+              routerLinkActive="active"
+              target="_self"
+              (click)="toggleMenu()"
+            >
+              <h2>Весь мир</h2>
+            </a>
+          </li>
+          <li>
+            <a
+              class="main-layout-navigation__link"
+              title="Статистика по России"
+              routerLink="/country/ru"
+              routerLinkActive="active"
+              target="_self"
+              (click)="toggleMenu()"
+            >
+              <h2>Россия</h2>
+            </a>
+          </li>
+          <li>
+            <a
+              class="main-layout-navigation__link"
+              title="Статистика по России"
+              routerLink="/country/de"
+              routerLinkActive="active"
+              target="_self"
+              (click)="toggleMenu()"
+            >
+              <h2>Германия</h2>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main-layout-header__navigation-toggle">
+      <svg-icon-sprite
+        class="main-layout-header__navigation-toggle-icon"
+        src="assets/svg/sprites/icons.svg#menu"
+        aria-label="Navigation Toggle"
+        (click)="toggleMenu()"
+      ></svg-icon-sprite>
+    </div>
   </header>
 
   <section class="main-layout-container">
@@ -11,7 +61,7 @@
   <footer class="main-layout-footer">
     <ul class="main-layout-footer__links">
       <li>
-        <a class="main-layout-footer__link" title="Автор" href="https://vakhramoff.ru/" target="_blank">
+        <a class="main-layout-footer__link" title="Автор" routerLink="/" target="_self">
           <h3>&copy; Сергей Вахрамов</h3>
         </a>
       </li>

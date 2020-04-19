@@ -60,6 +60,11 @@ $box-shadow: 0.25em 0.25em 0.75em rgba($color-dark, .25)
 @mixin shadowed-border
   box-shadow: $box-shadow
 
+@mixin truncated-text
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+
 *
   box-sizing: border-box
   margin: 0
