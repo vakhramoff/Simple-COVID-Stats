@@ -3,16 +3,10 @@
 .covid-data-card
   +shadowed-border
   display: flex
-  flex-flow: row
   flex-wrap: wrap
   justify-content: space-between
   align-items: center
   border-radius: $radius-large
-  min-width: 300px
-  max-width: 450px
-  min-height: 175px
-  max-height: 250px
-  flex: 1 1 auto
   padding: $padding-large
   margin: $padding-extra-large
 
@@ -42,10 +36,7 @@
 
 @media (max-width: 900px)
   .covid-data-card
-    min-width: 200px
-    max-width: 330px
-    min-height: 125px
-    max-height: 200px
+    flex-basis: 200px
 
   .covid-data-card__icon
     width: 48px
