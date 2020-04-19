@@ -1,14 +1,13 @@
 @import '../../styles'
 
 .covid-data
-  display: flex
-  flex-flow: row
-  flex-wrap: wrap
-  justify-content: space-between
-  align-items: flex-start
+  +cards-layout
+
+.covid-data__card
+  +cards-layout__card
 
 .covid-data--row-delimiter
-  width: 100%
+  +cards-layout--row-delimiter
 
-.covid-data--last
-  margin-left: auto
+.covid-data--last-card
+  +cards-layout--last-card

@@ -1,34 +1,40 @@
-<shared-main-layout headerTitle="Статистика заболеваемости COVID" footerTitle="Разработано @vakhramoff">
+<shared-main-layout headerTitle="COVID / Мировая статистика" footerTitle="Разработано @vakhramoff">
   <div class="covid-data" *ngIf="allStats$ | async as stats; else loading">
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#coronavirus'"
       title="Всего случаев"
       [value]="stats.cases + ' (+' + stats.todayCases + ')'"
     ></shared-data-card>
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#recovered'"
       title="Выздоровевших"
       type="success"
       [value]="stats.recovered"
     ></shared-data-card>
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#cough'"
       title="Заболевших"
       type="danger"
       [value]="stats.active"
     ></shared-data-card>
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#cough'"
       title="Больных на миллион"
       [value]="stats.casesPerOneMillion"
     ></shared-data-card>
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#sick'"
       title="Критически больных"
       type="danger"
       [value]="stats.critical"
     ></shared-data-card>
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#skull'"
       title="Смертей"
       type="danger"
@@ -36,6 +42,7 @@
     ></shared-data-card>
 
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#skull'"
       title="Смертей на миллион"
       type="danger"
@@ -45,12 +52,14 @@
     <!--    <div class="covid-data&#45;&#45;row-delimiter"></div>-->
 
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#chemistry'"
       title="Тестов проведено"
       type="warning"
       [value]="stats.tests"
     ></shared-data-card>
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#chemistry'"
       title="Тестов на миллион"
       [value]="stats.testsPerOneMillion"
@@ -59,6 +68,7 @@
     <!--    <div class="covid-data&#45;&#45;row-delimiter"></div>-->
 
     <shared-data-card
+      class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#worldwide'"
       title="Стран с заражёнными"
       type="danger"
@@ -68,10 +78,10 @@
     <div class="covid-data--row-delimiter"></div>
 
     <shared-data-card
-      class="covid-data--last"
+      class="covid-data__card covid-data--last-card"
       [icon]="'assets/svg/sprites/icons.svg#clock'"
       title="Обновлено"
-      [value]="stats.updated | date: 'dd.MM.yyyy hh:mm:ss':null:'ru'"
+      [value]="stats.updated | date: 'dd.MM.yyyy hh:mm:ss ZZZZ':null:'ru'"
     ></shared-data-card>
   </div>
   <ng-template #loading>
