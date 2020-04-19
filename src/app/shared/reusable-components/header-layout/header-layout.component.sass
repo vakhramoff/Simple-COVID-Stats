@@ -1,0 +1,72 @@
+@import '../../../../styles'
+
+.header-layout
+  +accent-on-dark
+  font-family: $font-secondary
+  display: flex
+  flex-direction: row
+  align-items: center
+  justify-content: space-between
+  flex-shrink: 0
+  padding: 0.25rem 1rem 0.5rem
+  z-index: 1
+  width: 100%
+  opacity: 0.9
+
+.header-layout__headers
+  display: flex
+  flex-direction: column
+  align-items: center
+  flex-grow: 1
+  flex-shrink: 0
+  min-width: 0
+  margin: 0 $padding-large
+
+.header-layout__title
+  +truncated-text
+  width: 100%
+  flex: 1 0
+  text-align: center
+  font-weight: $font-weight-bold
+
+.header-layout__subtitle
+  +truncated-text
+  +light-on-dark
+  flex: 1 0
+  text-align: center
+  width: 100%
+  font-weight: $font-weight-regular
+
+.header-layout__navigation-toggle
+  display: flex
+  color: $color-accent
+  cursor: pointer
+
+.header-layout__navigation-toggle-icon
+  width: 64px
+  height: 64px
+
+  @media (max-width: 900px)
+    width: 48px
+    height: 48px
+
+.header-layout-navigation
+  overflow: hidden
+
+.header-layout-navigation__links
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  justify-content: center
+  flex-grow: 1
+  list-style-type: none
+
+  li
+    padding-top: $padding-normal
+
+.header-layout-navigation__link
+  text-decoration: none
+  color: $color-accent
+
+  &:hover
+    color: $color-light

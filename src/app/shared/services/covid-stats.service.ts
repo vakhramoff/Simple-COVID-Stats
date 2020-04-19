@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AllStatisticInfo } from './interfaces/all-statistic-info';
-import { environment } from '../../environments/environment';
 import { catchError, tap } from 'rxjs/operators';
-import { CountryStatisticInfo } from './interfaces/country-statistic-info';
+import { AllStatisticInfo } from '../interfaces/all-statistic-info';
+import { environment } from '../../../environments/environment';
+import { CountryStatisticInfo } from '../interfaces/country-statistic-info';
 
 @Injectable({
   providedIn: 'root',

@@ -1,0 +1,54 @@
+<header class="header-layout">
+  <div class="header-layout__headers">
+    <h1 class="header-layout__title">{{ headerTitle }}</h1>
+    <h3 class="header-layout__subtitle">{{ headerSubTitle }}</h3>
+    <nav class="header-layout-navigation" [@toggleMenu]="menuState">
+      <ul class="header-layout-navigation__links">
+        <li>
+          <a
+            class="header-layout-navigation__link"
+            title="Мировая статистика"
+            routerLink="/"
+            routerLinkActive="active"
+            target="_self"
+            (click)="toggleMenu()"
+          >
+            <h2>Весь мир</h2>
+          </a>
+        </li>
+        <li>
+          <a
+            class="header-layout-navigation__link"
+            title="Статистика по России"
+            routerLink="/country/ru"
+            routerLinkActive="active"
+            target="_self"
+            (click)="toggleMenu()"
+          >
+            <h2>Россия</h2>
+          </a>
+        </li>
+        <li>
+          <a
+            class="header-layout-navigation__link"
+            title="Статистика по России"
+            routerLink="/country/de"
+            routerLinkActive="active"
+            target="_self"
+            (click)="toggleMenu()"
+          >
+            <h2>Германия</h2>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="header-layout__navigation-toggle">
+    <svg-icon-sprite
+      class="header-layout__navigation-toggle-icon"
+      src="assets/svg/sprites/icons.svg#menu"
+      aria-label="Navigation Toggle"
+      (click)="toggleMenu()"
+    ></svg-icon-sprite>
+  </div>
+</header>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CovidStatsService } from '../shared/covid-stats.service';
 import { AllStatisticInfo } from '../shared/interfaces/all-statistic-info';
+import { CovidStatsService } from '../shared/services/covid-stats.service';
 
 @Component({
   selector: 'app-home-page',

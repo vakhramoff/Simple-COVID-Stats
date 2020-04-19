@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import { CovidStatsService } from '../shared/covid-stats.service';
 import { CountryStatisticInfo } from '../shared/interfaces/country-statistic-info';
-import { UpperCasePipe } from '@angular/common';
+import { CovidStatsService } from '../shared/services/covid-stats.service';
 
 @Component({
   selector: 'app-country-page',
