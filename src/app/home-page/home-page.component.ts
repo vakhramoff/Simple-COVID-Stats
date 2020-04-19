@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CovidStatsService } from '../shared/covid-stats.service';
 import { AllStatisticInfo } from '../shared/interfaces/all-statistic-info';
@@ -12,7 +11,7 @@ import { AllStatisticInfo } from '../shared/interfaces/all-statistic-info';
 export class HomePageComponent implements OnInit {
   public allStats$: Observable<AllStatisticInfo>;
 
-  constructor(private covidStatsService: CovidStatsService, private route: ActivatedRoute) {}
+  constructor(private covidStatsService: CovidStatsService) {}
 
   ngOnInit(): void {
     this.allStats$ = this.covidStatsService.getAll();

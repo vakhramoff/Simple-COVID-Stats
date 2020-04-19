@@ -11,22 +11,72 @@
   +accent-on-dark
   font-family: $font-secondary
   display: flex
-  flex-direction: column
+  flex-direction: row
   align-items: center
-  justify-content: center
+  justify-content: space-between
   flex-shrink: 0
-  padding: 0.25rem 2rem
+  padding: 0.25rem 1rem 0.5rem
   z-index: 1
   width: 100%
   opacity: 0.9
 
+.main-layout-header__headers
+  display: flex
+  flex-direction: column
+  align-items: center
+  flex-grow: 1
+  flex-shrink: 0
+  min-width: 0
+  margin: 0 $padding-large
+
 .main-layout-header__title
+  +truncated-text
+  width: 100%
+  flex: 1 0
+  text-align: center
   font-weight: $font-weight-bold
 
-
 .main-layout-header__subtitle
+  +truncated-text
   +light-on-dark
+  flex: 1 0
+  text-align: center
+  width: 100%
   font-weight: $font-weight-regular
+
+.main-layout-header__navigation-toggle
+  display: flex
+  color: $color-accent
+  cursor: pointer
+
+.main-layout-header__navigation-toggle-icon
+  width: 64px
+  height: 64px
+
+  @media (max-width: 900px)
+    width: 48px
+    height: 48px
+
+.main-layout-navigation
+  overflow: hidden
+
+.main-layout-navigation__links
+  display: flex
+  flex-direction: column
+  flex-wrap: wrap
+  justify-content: center
+  flex-grow: 1
+  list-style-type: none
+
+  li
+    padding-top: $padding-normal
+
+.main-layout-navigation__link
+  text-decoration: none
+  color: $color-accent
+
+  &:hover
+    color: $color-light
 
 .main-layout-container
   flex-grow: 1
