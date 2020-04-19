@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "svg:icons": "svg2sprite ./src/assets/svg/icons ./src/assets/svg/sprites/icons.svg --stripAttrs id",
+    "svg:icons": "svg2sprite ./src/assets/svg/icons ./src/assets/svg/sprites/icons.svg --stripAttrs id --stripAttrs width --stripAttrs height",
     "prettier": "prettier --check \"src/**/*.(ts|component.html)\"",
     "prettier:fix": "npm rum prettier -- --write",
     "compodoc": "compodoc",
