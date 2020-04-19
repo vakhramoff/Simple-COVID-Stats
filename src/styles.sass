@@ -18,6 +18,16 @@ $font-size-h1: 1.75rem
 $font-size-h2: 1.45rem
 $font-size-h3: 1.15rem
 
+@media (max-width: 900px)
+  $font-size-h1: $font-size-h1 * 0.85
+  $font-size-h2: $font-size-h2 * 0.9
+  $font-size-h3: $font-size-h3 * 0.75
+
+  $font-size-small: $font-size-small * 0.85
+  $font-size-medium: $font-size-medium * 0.9
+  $font-size-large: $font-size-large * 0.75
+  $font-size-extra-large: $font-size-extra-large * 0.75
+
 // Colors
 $color-light: #fff
 $color-dark: #303030
@@ -75,7 +85,7 @@ body
   font-family: $font-primary
   font-weight: $font-weight-regular
   font-size: 1rem
-  line-height: 1.6
+  line-height: 1.4
 
 h1
   font-size: $font-size-h1

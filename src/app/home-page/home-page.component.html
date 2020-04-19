@@ -1,4 +1,4 @@
-<shared-main-layout headerTitle="COVID / Мировая статистика" footerTitle="Разработано @vakhramoff">
+<shared-main-layout headerSubTitle="Мировая статистика">
   <div class="covid-data" *ngIf="allStats$ | async as stats; else loading">
     <shared-data-card
       class="covid-data__card"

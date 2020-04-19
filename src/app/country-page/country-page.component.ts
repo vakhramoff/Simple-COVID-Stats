@@ -33,7 +33,7 @@ export class CountryPageComponent implements OnInit {
     );
   }
 
-  get headerTitle() {
-    return `COVID${this.countryCode && this.countryName ? ` / ${this.countryName}, ${this.countryCode}` : ''}`;
+  get headerSubTitle() {
+    return `${this.countryCode && this.countryName ? `${this.countryName}, ${this.countryCode}` : ''}`;
   }
 }

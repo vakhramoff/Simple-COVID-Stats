@@ -11,13 +11,22 @@
   +accent-on-dark
   font-family: $font-secondary
   display: flex
+  flex-direction: column
   align-items: center
   justify-content: center
   flex-shrink: 0
-  padding: 0.7rem 2rem
+  padding: 0.25rem 2rem
   z-index: 1
   width: 100%
   opacity: 0.9
+
+.main-layout-header__title
+  font-weight: $font-weight-bold
+
+
+.main-layout-header__subtitle
+  +light-on-dark
+  font-weight: $font-weight-regular
 
 .main-layout-container
   flex-grow: 1
@@ -32,26 +41,29 @@
   font-family: $font-secondary
   display: flex
   align-items: center
-  justify-content: center
   flex-shrink: 0
-  padding: 0.7rem 2rem
+  padding: 0.5rem 1rem
   z-index: 1
   width: 100%
   opacity: 0.9
   border-bottom: 1px solid $color-dark
 
-ul
+  *
+    font-weight: $font-weight-regular
+
+.main-layout-footer__title
+  font-size: $font-size-medium
+
+.main-layout-footer__links
+  height: 100%
   display: flex
+  justify-content: space-evenly
+  flex-grow: 1
+  list-style-type: none
 
-li.active a
-  color: $color-dark
-  font-weight: bold
-  cursor: default
-
-a
-  color: #fff
-  padding: 0.45rem
-  margin: 0 0.25rem
+.main-layout-footer__link
+  text-decoration: none
+  color: $color-accent
 
   &:hover
     color: $color-light
