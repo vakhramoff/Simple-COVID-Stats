@@ -7,37 +7,37 @@
         <li>
           <a
             class="header-layout-navigation__link"
-            title="Мировая статистика"
+            [title]="'countries.worldwide' | transloco"
             routerLink="/"
             routerLinkActive="active"
             target="_self"
             (click)="toggleMenu()"
           >
-            <h2>Весь мир</h2>
+            <h2>{{ 'countries.worldwide' | transloco }}</h2>
           </a>
         </li>
         <li>
           <a
             class="header-layout-navigation__link"
-            title="Статистика по России"
+            [title]="('commonWords.statisticsFor' | transloco) + ('countries.Russia' | transloco)"
             routerLink="/country/ru"
             routerLinkActive="active"
             target="_self"
             (click)="toggleMenu()"
           >
-            <h2>Россия</h2>
+            <h2>{{ 'countries.Russia' | transloco }}</h2>
           </a>
         </li>
         <li>
           <a
             class="header-layout-navigation__link"
-            title="Статистика по России"
+            [title]="('commonWords.statisticsFor' | transloco) + ('countries.Germany' | transloco)"
             routerLink="/country/de"
             routerLinkActive="active"
             target="_self"
             (click)="toggleMenu()"
           >
-            <h2>Германия</h2>
+            <h2>{{ 'countries.Germany' | transloco }}</h2>
           </a>
         </li>
       </ul>

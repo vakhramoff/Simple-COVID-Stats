@@ -5,12 +5,13 @@ import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { CountryStatisticInfo } from '../shared/interfaces/country-statistic-info';
 import { CovidStatsService } from '../shared/services/covid-stats.service';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-country-page',
   templateUrl: './country-page.component.html',
   styleUrls: ['./country-page.component.sass'],
-  providers: [UpperCasePipe],
+  providers: [UpperCasePipe, TranslocoPipe],
 })
 export class CountryPageComponent implements OnInit {
   public countryStat$: Observable<CountryStatisticInfo>;
@@ -18,7 +19,12 @@ export class CountryPageComponent implements OnInit {
   private countryCode: string;
   private countryName: string;
 
-  constructor(private covidStatsService: CovidStatsService, private route: ActivatedRoute, private upperCasePipe: UpperCasePipe) {}
+  constructor(
+    private covidStatsService: CovidStatsService,
+    private route: ActivatedRoute,
+    private upperCasePipe: UpperCasePipe,
+    private translocoPipe: TranslocoPipe,
+  ) {}
 
   ngOnInit(): void {
     this.countryStat$ = this.route.params.pipe(
@@ -34,6 +40,8 @@ export class CountryPageComponent implements OnInit {
   }
 
   get headerSubTitle() {
-    return `${this.countryCode && this.countryName ? `${this.countryName}, ${this.countryCode}` : ''}`;
+    return `${
+      this.countryCode && this.countryName ? `${this.translocoPipe.transform(`countries.${this.countryName}`)}, ${this.countryCode}` : ''
+    }`;
   }
 }
