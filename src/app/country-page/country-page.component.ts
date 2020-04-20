@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { CountryStatisticInfo } from '../shared/interfaces/country-statistic-info';
 import { CovidStatsService } from '../shared/services/covid-stats.service';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-country-page',
@@ -18,7 +19,12 @@ export class CountryPageComponent implements OnInit {
   private countryCode: string;
   private countryName: string;
 
-  constructor(private covidStatsService: CovidStatsService, private route: ActivatedRoute, private upperCasePipe: UpperCasePipe) {}
+  constructor(
+    private covidStatsService: CovidStatsService,
+    private route: ActivatedRoute,
+    private upperCasePipe: UpperCasePipe,
+    private translocoService: TranslocoService,
+  ) {}
 
   ngOnInit(): void {
     this.countryStat$ = this.route.params.pipe(
@@ -31,6 +37,10 @@ export class CountryPageComponent implements OnInit {
         );
       }),
     );
+  }
+
+  get activeLocale() {
+    return this.translocoService.getActiveLang();
   }
 
   get headerSubTitle() {

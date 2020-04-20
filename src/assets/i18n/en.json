@@ -1,0 +1,44 @@
+{
+  "countries": {
+    "worldwide": "Worldwide",
+    "Russia": "Russia",
+    "Germany": "Germany",
+    "Ukraine": "Ukraine"
+  },
+  "statistics": {
+    "updated": "Last Updated",
+    "cases": "Total Cases",
+    "deaths": "Deaths",
+    "recovered": "Recovered",
+    "active": "Active",
+    "critical": "Critical",
+    "casesPerOneMillion": "Cases per Million",
+    "deathsPerOneMillion": "Deaths per Million",
+    "tests": "Tests",
+    "testsPerOneMillion": "Tests per Million",
+    "affectedCountries": "Affected Countries"
+  },
+  "commonWords": {
+    "statisticsFor": "Statistics for "
+  },
+  "commonAppVars": {
+    "error": "Error",
+    "loadingData": "Loading data..."
+  },
+  "homePage": {
+    "headerSubTitle": "Worldwide Statistics"
+  },
+  "countryPage": {},
+  "errorPage": {
+    "headerSubTitle": "Error Page",
+    "componentNotFound": "The page that you're looking for was not found"
+  },
+  "footer": {
+    "authorName": "Sergey Vakhramov",
+    "authorNameDescription": "Author's Web-page",
+    "api": "API",
+    "apiDescription": "Data Provider's API",
+    "sourceCode": "Source Code",
+    "sourceCodeDescription": "Source Code"
+  }
+}

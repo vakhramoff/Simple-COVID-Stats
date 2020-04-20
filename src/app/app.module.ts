@@ -10,12 +10,13 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { CountryPageComponent } from './country-page/country-page.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(localeRussian, 'ru');
 
 @NgModule({
   declarations: [AppComponent, HomePageComponent, CountryPageComponent, ErrorPageComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, SharedModule],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, SharedModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

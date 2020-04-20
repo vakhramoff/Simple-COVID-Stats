@@ -1,0 +1,44 @@
+{
+  "countries": {
+    "worldwide": "Весь мир",
+    "Russia": "Россия",
+    "Germany": "Германия",
+    "Ukraine": "Украина"
+  },
+  "statistics": {
+    "updated": "Последнее обновление",
+    "cases": "Всего случаев",
+    "deaths": "Смертей",
+    "recovered": "Выздоровевших",
+    "active": "Заболевших",
+    "critical": "Критически больных",
+    "casesPerOneMillion": "Больных на миллион",
+    "deathsPerOneMillion": "Смертей на миллион",
+    "tests": "Тестов проведено",
+    "testsPerOneMillion": "Тестов на миллион",
+    "affectedCountries": "Стран с заражёнными"
+  },
+  "commonWords": {
+    "statisticsFor": "Статистика – "
+  },
+  "commonAppVars": {
+    "error": "Ошибка",
+    "loadingData": "Загрузка данных..."
+  },
+  "homePage": {
+    "headerSubTitle": "Мировая статистика"
+  },
+  "countryPage": {},
+  "errorPage": {
+    "headerSubTitle": "Страница ошибки",
+    "componentNotFound": "Страница, которую вы искали, не найдена"
+  },
+  "footer": {
+    "authorName": "Сергей Вахрамов",
+    "authorNameDescription": "Веб-сайт автора",
+    "api": "Данные (API)",
+    "apiDescription": "Источник данных",
+    "sourceCode": "Исходный код",
+    "sourceCodeDescription": "Исходный код на Github"
+  }
+}

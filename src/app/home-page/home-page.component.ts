@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AllStatisticInfo } from '../shared/interfaces/all-statistic-info';
 import { CovidStatsService } from '../shared/services/covid-stats.service';
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-home-page',
@@ -11,9 +12,13 @@ import { CovidStatsService } from '../shared/services/covid-stats.service';
 export class HomePageComponent implements OnInit {
   public allStats$: Observable<AllStatisticInfo>;
 
-  constructor(private covidStatsService: CovidStatsService) {}
+  constructor(private covidStatsService: CovidStatsService, private translocoService: TranslocoService) {}
 
   ngOnInit(): void {
     this.allStats$ = this.covidStatsService.getAll();
+  }
+
+  get activeLocale() {
+    return this.translocoService.getActiveLang();
   }
 }

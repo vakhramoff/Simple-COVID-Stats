@@ -12,7 +12,10 @@
     "prettier": "prettier --check \"src/**/*.(ts|component.html)\"",
     "prettier:fix": "npm rum prettier -- --write",
     "compodoc": "compodoc",
-    "compodoc:serve": "compodoc -s -o"
+    "compodoc:serve": "compodoc -s -o",
+    "i18n:extract": "transloco-keys-manager extract",
+    "i18n:find": "transloco-keys-manager find",
+    "i18n:find:missing-keys": "transloco-keys-manager find --add-missing-keys"
   },
   "husky": {
     "hooks": {
@@ -27,24 +30,25 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.0.5",
-    "@angular/common": "~9.0.5",
-    "@angular/compiler": "~9.0.5",
-    "@angular/core": "~9.0.5",
-    "@angular/forms": "~9.0.5",
-    "@angular/platform-browser": "~9.0.5",
-    "@angular/platform-browser-dynamic": "~9.0.5",
-    "@angular/router": "~9.0.5",
+    "@angular/animations": "~9.1.2",
+    "@angular/common": "~9.1.2",
+    "@angular/compiler": "~9.1.2",
+    "@angular/core": "~9.1.2",
+    "@angular/forms": "~9.1.2",
+    "@angular/platform-browser": "~9.1.2",
+    "@angular/platform-browser-dynamic": "~9.1.2",
+    "@angular/router": "~9.1.2",
+    "@ngneat/transloco": "^2.15.0",
     "ng-svg-icon-sprite": "^1.7.1",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.5",
-    "@angular/cli": "~9.0.5",
-    "@angular/compiler-cli": "~9.0.5",
-    "@angular/language-service": "~9.0.5",
+    "@angular-devkit/build-angular": "~0.901.1",
+    "@angular/cli": "~9.1.1",
+    "@angular/compiler-cli": "~9.1.2",
+    "@angular/language-service": "~9.1.2",
     "@compodoc/compodoc": "^1.1.11",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
@@ -64,6 +68,8 @@
     "svg2sprite-cli": "^2.0.1",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
-    "typescript": "~3.7.5"
+    "typescript": "~3.7.5",
+    "ngx-build-plus": "^9.0.2",
+    "@ngneat/transloco-keys-manager": "^1.0.0"
   }
 }

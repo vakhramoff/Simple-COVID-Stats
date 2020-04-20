@@ -1,50 +1,49 @@
-<shared-main-layout headerSubTitle="Мировая статистика">
+<shared-main-layout [headerSubTitle]="'homePage.headerSubTitle' | transloco">
   <div class="covid-data" *ngIf="allStats$ | async as stats; else loading">
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#coronavirus'"
-      title="Всего случаев"
+      [title]="'statistics.cases' | transloco"
       [value]="stats.cases + ' (+' + stats.todayCases + ')'"
     ></shared-data-card>
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#recovered'"
-      title="Выздоровевших"
+      [title]="'statistics.recovered' | transloco"
       type="success"
       [value]="stats.recovered"
     ></shared-data-card>
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#cough'"
-      title="Заболевших"
+      [title]="'statistics.active' | transloco"
       type="danger"
       [value]="stats.active"
     ></shared-data-card>
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#cough'"
-      title="Больных на миллион"
+      [title]="'statistics.casesPerOneMillion' | transloco"
       [value]="stats.casesPerOneMillion"
     ></shared-data-card>
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#sick'"
-      title="Критически больных"
+      [title]="'statistics.critical' | transloco"
       type="danger"
       [value]="stats.critical"
     ></shared-data-card>
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#skull'"
-      title="Смертей"
+      [title]="'statistics.deaths' | transloco"
       type="danger"
       [value]="stats.deaths + ' (+' + stats.todayDeaths + ')'"
     ></shared-data-card>
-
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#skull'"
-      title="Смертей на миллион"
+      [title]="'statistics.deathsPerOneMillion' | transloco"
       type="danger"
       [value]="stats.deathsPerOneMillion"
     ></shared-data-card>
@@ -54,14 +53,14 @@
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#chemistry'"
-      title="Тестов проведено"
+      [title]="'statistics.tests' | transloco"
       type="warning"
       [value]="stats.tests"
     ></shared-data-card>
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#chemistry'"
-      title="Тестов на миллион"
+      [title]="'statistics.testsPerOneMillion' | transloco"
       [value]="stats.testsPerOneMillion"
     ></shared-data-card>
 
@@ -70,7 +69,7 @@
     <shared-data-card
       class="covid-data__card"
       [icon]="'assets/svg/sprites/icons.svg#worldwide'"
-      title="Стран с заражёнными"
+      [title]="'statistics.affectedCountries' | transloco"
       type="danger"
       [value]="stats.affectedCountries"
     ></shared-data-card>
@@ -80,11 +79,13 @@
     <shared-data-card
       class="covid-data__card covid-data--last-card"
       [icon]="'assets/svg/sprites/icons.svg#clock'"
-      title="Обновлено"
-      [value]="stats.updated | date: 'dd.MM.yyyy hh:mm:ss ZZZZ':null:'ru'"
+      [title]="'statistics.updated' | transloco"
+      [value]="stats.updated | date: 'dd.MM.yyyy hh:mm:ss ZZZZ':null:activeLocale"
     ></shared-data-card>
   </div>
   <ng-template #loading>
-    <h1><strong>Загрузка статистики...</strong></h1>
+    <h1>
+      <strong>{{ 'commonAppVars.loadingData' | transloco }}</strong>
+    </h1>
   </ng-template>
 </shared-main-layout>
