@@ -5,7 +5,7 @@ module.exports = {
   fallbackLang: ['en', 'ru'],
   missingHandler: {
     allowEmpty: true,
-    // logMissingKey: false,
+    logMissingKey: false,
     useFallbackTranslation: true
   }
 };
