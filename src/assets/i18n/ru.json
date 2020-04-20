@@ -22,6 +22,7 @@
     "statisticsFor": "Статистика – "
   },
   "commonAppVars": {
+    "title": "Статистика COVID",
     "error": "Ошибка",
     "loadingData": "Загрузка данных..."
   },

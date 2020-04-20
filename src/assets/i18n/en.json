@@ -22,6 +22,7 @@
     "statisticsFor": "Statistics for "
   },
   "commonAppVars": {
+    "title": "COVID Statistics",
     "error": "Error",
     "loadingData": "Loading data..."
   },
