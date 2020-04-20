@@ -80,7 +80,7 @@
       class="covid-data__card covid-data--last-card"
       [icon]="'assets/svg/sprites/icons.svg#clock'"
       [title]="'statistics.updated' | transloco"
-      [value]="stats.updated | date: 'dd.MM.yyyy hh:mm:ss ZZZZ':null:'ru'"
+      [value]="stats.updated | date: 'dd.MM.yyyy hh:mm:ss ZZZZ':null:translocoService.getActiveLang()"
     ></shared-data-card>
   </div>
   <ng-template #loading>

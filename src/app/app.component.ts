@@ -6,7 +6,7 @@ export enum EAvailableAppLanguages {
   ru = 'ru',
 }
 
-type TAppLanguage = EAvailableAppLanguages;
+export type TAppLanguage = EAvailableAppLanguages;
 
 @Component({
   selector: 'app-root',
@@ -15,10 +15,17 @@ type TAppLanguage = EAvailableAppLanguages;
 })
 export class AppComponent {
   constructor(private translocoService: TranslocoService) {
-    // translocoService.setActiveLang(EAvailableAppLanguages.en);
+    const browserLanguageCode = navigator.language;
 
-    const appDefaultLanguage: TAppLanguage = <TAppLanguage>translocoService.getDefaultLang();
+    let appLanguage: TAppLanguage;
 
-    console.log('Default language', appDefaultLanguage);
+    if (browserLanguageCode.startsWith(EAvailableAppLanguages.ru)) {
+      translocoService.setActiveLang(EAvailableAppLanguages.ru);
+    } else {
+      translocoService.setActiveLang(EAvailableAppLanguages.en);
+    }
+
+    appLanguage = <TAppLanguage>translocoService.getDefaultLang();
+    console.log('Выбранный язык приложения', appLanguage);
   }
 }

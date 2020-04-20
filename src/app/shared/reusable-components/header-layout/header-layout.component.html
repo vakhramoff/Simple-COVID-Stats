@@ -40,6 +40,18 @@
             <h2>{{ 'countries.Germany' | transloco }}</h2>
           </a>
         </li>
+        <li>
+          <a
+            class="header-layout-navigation__link"
+            [title]="('commonWords.statisticsFor' | transloco) + ('countries.Ukraine' | transloco)"
+            routerLink="/country/ua"
+            routerLinkActive="active"
+            target="_self"
+            (click)="toggleMenu()"
+          >
+            <h2>{{ 'countries.Ukraine' | transloco }}</h2>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

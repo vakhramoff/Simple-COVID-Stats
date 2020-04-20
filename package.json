@@ -12,7 +12,10 @@
     "prettier": "prettier --check \"src/**/*.(ts|component.html)\"",
     "prettier:fix": "npm rum prettier -- --write",
     "compodoc": "compodoc",
-    "compodoc:serve": "compodoc -s -o"
+    "compodoc:serve": "compodoc -s -o",
+    "i18n:extract": "transloco-keys-manager extract",
+    "i18n:find": "transloco-keys-manager find",
+    "i18n:find:missing-keys": "transloco-keys-manager find --add-missing-keys"
   },
   "husky": {
     "hooks": {
@@ -65,6 +68,8 @@
     "svg2sprite-cli": "^2.0.1",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
-    "typescript": "~3.7.5"
+    "typescript": "~3.7.5",
+    "ngx-build-plus": "^9.0.2",
+    "@ngneat/transloco-keys-manager": "^1.0.0"
   }
 }

@@ -19,8 +19,7 @@
     "affectedCountries": "Affected Countries"
   },
   "commonWords": {
-    "statisticsFor": "Statistics for ",
-    "statisticsIn": "Statistics in "
+    "statisticsFor": "Statistics for "
   },
   "commonAppVars": {
     "error": "Error",
@@ -29,9 +28,7 @@
   "homePage": {
     "headerSubTitle": "Worldwide Statistics"
   },
-  "countryPage": {
-
-  },
+  "countryPage": {},
   "errorPage": {
     "headerSubTitle": "Error Page",
     "componentNotFound": "The page that you're looking for was not found"

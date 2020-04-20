@@ -19,8 +19,7 @@
     "affectedCountries": "Стран с заражёнными"
   },
   "commonWords": {
-    "statisticsFor": "Статистика – ",
-    "statisticsIn": "Статистика – "
+    "statisticsFor": "Статистика – "
   },
   "commonAppVars": {
     "error": "Ошибка",
@@ -29,9 +28,7 @@
   "homePage": {
     "headerSubTitle": "Мировая статистика"
   },
-  "countryPage": {
-
-  },
+  "countryPage": {},
   "errorPage": {
     "headerSubTitle": "Страница ошибки",
     "componentNotFound": "Страница, которую вы искали, не найдена"
