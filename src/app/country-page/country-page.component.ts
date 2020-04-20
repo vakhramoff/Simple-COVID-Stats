@@ -39,6 +39,10 @@ export class CountryPageComponent implements OnInit {
     );
   }
 
+  get activeLocale() {
+    return this.translocoService.getActiveLang();
+  }
+
   get headerSubTitle() {
     return `${this.countryCode && this.countryName ? `${this.countryName}, ${this.countryCode}` : ''}`;
   }

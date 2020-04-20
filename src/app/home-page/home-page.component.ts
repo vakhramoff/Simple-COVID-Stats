@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AllStatisticInfo } from '../shared/interfaces/all-statistic-info';
 import { CovidStatsService } from '../shared/services/covid-stats.service';
-import { UpperCasePipe } from '@angular/common';
 import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
@@ -17,5 +16,9 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.allStats$ = this.covidStatsService.getAll();
+  }
+
+  get activeLocale() {
+    return this.translocoService.getActiveLang();
   }
 }
