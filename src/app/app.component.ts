@@ -26,10 +26,13 @@ export class AppComponent implements OnInit {
     let appLanguage: TAppLanguage;
     let appTitle: string = environment.initialAppTitle;
 
-    if (browserLanguageCode.startsWith(EAvailableAppLanguages.ru)) {
-      this.translocoService.setActiveLang(EAvailableAppLanguages.ru);
-    } else {
-      this.translocoService.setActiveLang(EAvailableAppLanguages.en);
+    switch (true) {
+      case browserLanguageCode.startsWith(EAvailableAppLanguages.ru):
+        this.translocoService.setActiveLang(EAvailableAppLanguages.ru);
+        break;
+      default:
+        this.translocoService.setActiveLang(EAvailableAppLanguages.en);
+        break;
     }
 
     this.setTitle(appTitle);
