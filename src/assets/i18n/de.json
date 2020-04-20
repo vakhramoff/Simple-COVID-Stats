@@ -1,0 +1,45 @@
+{
+  "countries": {
+    "worldwide": "Weltweit",
+    "Russia": "Russland",
+    "Germany": "Deutschland",
+    "Ukraine": "Ukraine"
+  },
+  "statistics": {
+    "updated": "Letztes Update",
+    "cases": "Gesamtfälle",
+    "deaths": "Todesfälle",
+    "recovered": "Wieder gesund",
+    "active": "Bestätigt",
+    "critical": "Kritisch kranke Patienten",
+    "casesPerOneMillion": "Kranken pro Million",
+    "deathsPerOneMillion": "Todesfälle pro Million",
+    "tests": "Anzahl Tests",
+    "testsPerOneMillion": "Tests pro Million",
+    "affectedCountries": "Betroffene Länder"
+  },
+  "commonWords": {
+    "statisticsFor": "Statistik für "
+  },
+  "commonAppVars": {
+    "title": "COVID Statistik",
+    "error": "Fehler",
+    "loadingData": "Laden von Daten..."
+  },
+  "homePage": {
+    "headerSubTitle": "Weltweite Statistik"
+  },
+  "countryPage": {},
+  "errorPage": {
+    "headerSubTitle": "Fehlerseiten",
+    "componentNotFound": "Die Webseite ist nicht gefunden"
+  },
+  "footer": {
+    "authorName": "Sergej Vakhramow",
+    "authorNameDescription": "Die Webseite von dem Autor",
+    "api": "API",
+    "apiDescription": "Datenquelle",
+    "sourceCode": "Quellenkode",
+    "sourceCodeDescription": "Quellenkode auf Github"
+  }
+}

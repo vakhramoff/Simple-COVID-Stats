@@ -8,6 +8,7 @@ import { TranslocoEvents } from '@ngneat/transloco/lib/types';
 export enum EAvailableAppLanguages {
   en = 'en',
   ru = 'ru',
+  de = 'de',
 }
 
 export type TAppLanguage = EAvailableAppLanguages;
@@ -30,6 +31,9 @@ export class AppComponent implements OnInit {
       case browserLanguageCode.startsWith(EAvailableAppLanguages.ru):
         this.translocoService.setActiveLang(EAvailableAppLanguages.ru);
         break;
+      case browserLanguageCode.startsWith(EAvailableAppLanguages.de):
+        this.translocoService.setActiveLang(EAvailableAppLanguages.de);
+        break;
       default:
         this.translocoService.setActiveLang(EAvailableAppLanguages.en);
         break;
@@ -37,7 +41,7 @@ export class AppComponent implements OnInit {
 
     this.setTitle(appTitle);
 
-    appLanguage = <TAppLanguage>this.translocoService.getDefaultLang();
+    appLanguage = <TAppLanguage>this.translocoService.getActiveLang();
     console.log('Выбранный язык приложения', appLanguage);
 
     this.translocoService.events$
