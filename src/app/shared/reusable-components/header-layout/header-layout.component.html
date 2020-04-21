@@ -31,6 +31,18 @@
         <li>
           <a
             class="header-layout-navigation__link"
+            [title]="('commonWords.statisticsFor' | transloco) + ('countries.China' | transloco)"
+            routerLink="/country/cn"
+            routerLinkActive="active"
+            target="_self"
+            (click)="toggleMenu()"
+          >
+            <h2>{{ 'countries.China' | transloco }}</h2>
+          </a>
+        </li>
+        <li>
+          <a
+            class="header-layout-navigation__link"
             [title]="('commonWords.statisticsFor' | transloco) + ('countries.Germany' | transloco)"
             routerLink="/country/de"
             routerLinkActive="active"
