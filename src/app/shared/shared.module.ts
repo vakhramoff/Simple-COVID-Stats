@@ -7,7 +7,7 @@ import { MainLayoutComponent } from './reusable-components/main-layout/main-layo
 import { DataCardComponent } from './reusable-components/data-card/data-card.component';
 import { FooterLayoutComponent } from './reusable-components/footer-layout/footer-layout.component';
 import { HeaderLayoutComponent } from './reusable-components/header-layout/header-layout.component';
-import { TranslocoRootModule } from '../transloco-root.module';
+import { TranslocoRootModule } from '../transloco/transloco-root.module';
 
 @NgModule({
   declarations: [MainLayoutComponent, DataCardComponent, FooterLayoutComponent, HeaderLayoutComponent],
