@@ -1,9 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { LoadedEvent, TranslocoService } from '@ngneat/transloco';
+import { TranslocoService } from '@ngneat/transloco';
 import { Title } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
-import { filter } from 'rxjs/operators';
-import { TranslocoEvents } from '@ngneat/transloco/lib/types';
 import { Subscription } from 'rxjs';
 
 export enum EAvailableAppLanguages {
@@ -47,13 +45,9 @@ export class AppComponent implements OnInit, OnDestroy {
     appLanguage = <TAppLanguage>this.translocoService.getActiveLang();
     console.log('Выбранный язык приложения', appLanguage);
 
-    this.translocoSub$ = this.translocoService.events$
-      .pipe(filter((event: TranslocoEvents) => event.type === 'translationLoadSuccess'))
-      .subscribe((successEvent: LoadedEvent) => {
-        appTitle = this.translocoService.translate('commonAppVars.title');
-
-        this.setTitle(appTitle);
-      });
+    this.translocoSub$ = this.translocoService.selectTranslate('commonAppVars.title').subscribe((translatedTitle: string) => {
+      this.setTitle(translatedTitle);
+    });
   }
 
   ngOnDestroy() {
