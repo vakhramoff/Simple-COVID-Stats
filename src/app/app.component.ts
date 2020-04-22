@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoadedEvent, TranslocoService } from '@ngneat/transloco';
 import { Title } from '@angular/platform-browser';
 import { environment } from '../environments/environment';
 import { filter } from 'rxjs/operators';
 import { TranslocoEvents } from '@ngneat/transloco/lib/types';
+import { Subscription } from 'rxjs';
 
 export enum EAvailableAppLanguages {
   en = 'en',
@@ -18,7 +19,9 @@ export type TAppLanguage = EAvailableAppLanguages;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+  private translocoSub$: Subscription;
+
   constructor(private translocoService: TranslocoService, private titleBarLocalizationService: Title) {}
 
   ngOnInit(): void {
@@ -44,13 +47,17 @@ export class AppComponent implements OnInit {
     appLanguage = <TAppLanguage>this.translocoService.getActiveLang();
     console.log('Выбранный язык приложения', appLanguage);
 
-    this.translocoService.events$
+    this.translocoSub$ = this.translocoService.events$
       .pipe(filter((event: TranslocoEvents) => event.type === 'translationLoadSuccess'))
       .subscribe((successEvent: LoadedEvent) => {
         appTitle = this.translocoService.translate('commonAppVars.title');
 
         this.setTitle(appTitle);
       });
+  }
+
+  ngOnDestroy() {
+    this.translocoSub$?.unsubscribe();
   }
 
   private setTitle(newTitle: string) {
