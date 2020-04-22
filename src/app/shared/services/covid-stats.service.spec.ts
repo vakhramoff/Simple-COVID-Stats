@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { CovidStatsService } from './covid-stats.service';
 
 describe('CovidStatsService', () => {

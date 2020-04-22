@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import { UpperCasePipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { CountryStatisticInfo } from '../shared/interfaces/country-statistic-info';
 import { CovidStatsService } from '../shared/services/covid-stats.service';
-import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-country-page',

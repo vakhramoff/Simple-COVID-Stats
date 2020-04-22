@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
 import { AllStatisticInfo } from '../shared/interfaces/all-statistic-info';
 import { CovidStatsService } from '../shared/services/covid-stats.service';
-import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-home-page',

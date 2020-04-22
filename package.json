@@ -51,6 +51,7 @@
     "@angular/compiler-cli": "~9.1.2",
     "@angular/language-service": "~9.1.2",
     "@compodoc/compodoc": "^1.1.11",
+    "@ngneat/transloco-keys-manager": "^1.0.0",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
@@ -64,13 +65,13 @@
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
     "lint-staged": "^10.1.4",
+    "ngx-build-plus": "^9.0.2",
     "prettier": "^2.0.4",
+    "prettier-plugin-organize-imports": "^1.0.3",
     "protractor": "~5.4.3",
     "svg2sprite-cli": "^2.0.1",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
-    "typescript": "~3.7.5",
-    "ngx-build-plus": "^9.0.2",
-    "@ngneat/transloco-keys-manager": "^1.0.0"
+    "typescript": "~3.7.5"
   }
 }

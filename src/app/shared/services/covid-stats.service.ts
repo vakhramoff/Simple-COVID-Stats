@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { AllStatisticInfo } from '../interfaces/all-statistic-info';
 import { environment } from '../../../environments/environment';
+import { AllStatisticInfo } from '../interfaces/all-statistic-info';
 import { CountryStatisticInfo } from '../interfaces/country-statistic-info';
 
 @Injectable({

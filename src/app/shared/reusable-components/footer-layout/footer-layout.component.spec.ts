@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FooterLayoutComponent } from './footer-layout.component';
 
 describe('FooterLayoutComponent', () => {

@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TranslocoService } from '@ngneat/transloco';
 import { Title } from '@angular/platform-browser';
-import { environment } from '../environments/environment';
+import { TranslocoService } from '@ngneat/transloco';
 import { Subscription } from 'rxjs';
+import { environment } from '../environments/environment';
 
 export enum EAvailableAppLanguages {
   en = 'en',
