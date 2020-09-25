@@ -11,7 +11,7 @@
     "e2e": "ng e2e",
     "svg:icons": "svg2sprite ./src/assets/svg/icons ./src/assets/svg/sprites/icons.svg --stripAttrs id --stripAttrs width --stripAttrs height",
     "prettier": "prettier --check \"src/**/*.(ts|component.html)\"",
-    "prettier:fix": "npm rum prettier -- --write",
+    "prettier:fix": "prettier --write \"src/**/*.(ts|component.html)\"",
     "compodoc": "compodoc",
     "compodoc:serve": "compodoc -s -o",
     "i18n:extract": "transloco-keys-manager extract",
@@ -25,7 +25,7 @@
   },
   "lint-staged": {
     "*.(ts|component.html)": [
-      "npm run prettier:fix",
+      "prettier --write",
       "git add"
     ]
   },
