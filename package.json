@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:browser": "ng serve --open",
     "build": "ng build",
     "build:production": "ng build --prod",
     "test": "ng test",
