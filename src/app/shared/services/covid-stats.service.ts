@@ -15,10 +15,10 @@ export class CovidStatsService {
   public getAll(): Observable<AllStatisticInfo> {
     return this.http.get<AllStatisticInfo>(`${environment.covidApiUrl}/all`).pipe(
       tap((data) => {
-        console.log('Полная статистика:', data);
+        console.info('General statistics', data);
       }),
       catchError((error) => {
-        console.warn('Возникла ошибка при загрузке статистики для всех стран: ', error);
+        console.warn('An error occurred while loading general statistics', error);
 
         throw error;
       }),
@@ -28,10 +28,10 @@ export class CovidStatsService {
   public getByCountry(countryCode: string): Observable<CountryStatisticInfo> {
     return this.http.get<CountryStatisticInfo>(`${environment.covidApiUrl}/countries/${countryCode}`).pipe(
       tap((data) => {
-        console.log(`Статистика по стране ${countryCode}:`, data);
+        console.info(`Statistics by country: ${countryCode}`, data);
       }),
       catchError((error) => {
-        console.warn(`Возникла ошибка при загрузке статистики для страны: ${countryCode}`, error);
+        console.warn(`An error occurred while loading statistics for country: ${countryCode}`, error);
 
         throw error;
       }),

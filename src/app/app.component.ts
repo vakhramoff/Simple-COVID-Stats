@@ -43,7 +43,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.setTitle(appTitle);
 
     appLanguage = <TAppLanguage>this.translocoService.getActiveLang();
-    console.log('Выбранный язык приложения', appLanguage);
+    console.info('Automatically detected language', appLanguage);
 
     this.translocoSub$ = this.translocoService.selectTranslate('commonAppVars.title').subscribe((translatedTitle: string) => {
       this.setTitle(translatedTitle);
