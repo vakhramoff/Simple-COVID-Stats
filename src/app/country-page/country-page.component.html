@@ -55,7 +55,7 @@
       [icon]="'assets/svg/sprites/icons.svg#chemistry'"
       [title]="'statistics.tests' | transloco"
       type="warning"
-      [value]="stats.tests"
+      [value]="stats.tests | toLocaleString"
     ></shared-data-card>
     <shared-data-card
       class="covid-data__card"
