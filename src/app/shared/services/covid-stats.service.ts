@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HandleHttpErrors } from '@vakhramoff/angular-utils';
 import { Observable } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { AllStatisticInfo } from '../interfaces/all-statistic-info';
 import { CountryStatisticInfo } from '../interfaces/country-statistic-info';
@@ -12,28 +13,20 @@ import { CountryStatisticInfo } from '../interfaces/country-statistic-info';
 export class CovidStatsService {
   constructor(private http: HttpClient) {}
 
+  @HandleHttpErrors()
   public getAll(): Observable<AllStatisticInfo> {
     return this.http.get<AllStatisticInfo>(`${environment.covidApiUrl}/all`).pipe(
       tap((data) => {
-        console.log('Полная статистика:', data);
-      }),
-      catchError((error) => {
-        console.warn('Возникла ошибка при загрузке статистики для всех стран: ', error);
-
-        throw error;
+        console.info('General statistics', data);
       }),
     );
   }
 
+  @HandleHttpErrors()
   public getByCountry(countryCode: string): Observable<CountryStatisticInfo> {
     return this.http.get<CountryStatisticInfo>(`${environment.covidApiUrl}/countries/${countryCode}`).pipe(
       tap((data) => {
-        console.log(`Статистика по стране ${countryCode}:`, data);
-      }),
-      catchError((error) => {
-        console.warn(`Возникла ошибка при загрузке статистики для страны: ${countryCode}`, error);
-
-        throw error;
+        console.info(`Statistics by country: ${countryCode}`, data);
       }),
     );
   }
