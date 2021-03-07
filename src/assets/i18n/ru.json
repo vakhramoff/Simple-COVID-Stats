@@ -41,7 +41,7 @@
     "api": "API",
     "apiDescription": "Источник данных",
     "sourceCodeStart": "Git",
-    "sourceCodeEnd": "hub",
+    "sourceCodeEnd": "Hub",
     "sourceCodeDescription": "Исходный код на Github"
   }
 }

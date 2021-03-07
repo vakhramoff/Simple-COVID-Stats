@@ -41,7 +41,7 @@
     "api": "API",
     "apiDescription": "Datenquelle",
     "sourceCodeStart": "Git",
-    "sourceCodeEnd": "hub",
+    "sourceCodeEnd": "Hub",
     "sourceCodeDescription": "Quellenkode auf Github"
   }
 }
