@@ -36,8 +36,8 @@
     "componentNotFound": "Страница, которую вы искали, не найдена"
   },
   "footer": {
-    "authorName": "Сергей Вахрамов",
-    "authorNameDescription": "Веб-сайт автора (vakhramoff.ru)",
+    "authorName": "vakhramoff.ru",
+    "authorNameDescription": "Веб-сайт автора (Сергей Вахрамов)",
     "api": "API",
     "apiDescription": "Источник данных",
     "sourceCodeStart": "Git",
