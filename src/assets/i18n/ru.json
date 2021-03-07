@@ -40,7 +40,8 @@
     "authorNameDescription": "Веб-сайт автора (vakhramoff.ru)",
     "api": "API",
     "apiDescription": "Источник данных",
-    "sourceCode": "Github",
+    "sourceCodeStart": "Git",
+    "sourceCodeEnd": "hub",
     "sourceCodeDescription": "Исходный код на Github"
   }
 }
