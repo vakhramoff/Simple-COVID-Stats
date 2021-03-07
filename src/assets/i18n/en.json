@@ -37,10 +37,10 @@
   },
   "footer": {
     "authorName": "Sergey Vakhramov",
-    "authorNameDescription": "Author's Web-page",
+    "authorNameDescription": "Author's Web-page (vakhramoff.ru)",
     "api": "API",
     "apiDescription": "Data Provider's API",
-    "sourceCode": "Source Code",
+    "sourceCode": "Github",
     "sourceCodeDescription": "Source Code"
   }
 }

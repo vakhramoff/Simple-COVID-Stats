@@ -37,10 +37,10 @@
   },
   "footer": {
     "authorName": "Сергей Вахрамов",
-    "authorNameDescription": "Веб-сайт автора",
-    "api": "Данные (API)",
+    "authorNameDescription": "Веб-сайт автора (vakhramoff.ru)",
+    "api": "API",
     "apiDescription": "Источник данных",
-    "sourceCode": "Исходный код",
+    "sourceCode": "Github",
     "sourceCodeDescription": "Исходный код на Github"
   }
 }
