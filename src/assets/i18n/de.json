@@ -36,8 +36,8 @@
     "componentNotFound": "Die Webseite ist nicht gefunden"
   },
   "footer": {
-    "authorName": "Sergej Vakhramow",
-    "authorNameDescription": "Die Webseite von dem Autor (vakhramoff.ru)",
+    "authorName": "vakhramoff.ru",
+    "authorNameDescription": "Die Webseite von dem Autor (Sergej Vakhramow)",
     "api": "API",
     "apiDescription": "Datenquelle",
     "sourceCodeStart": "Git",

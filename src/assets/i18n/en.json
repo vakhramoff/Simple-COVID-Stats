@@ -36,8 +36,8 @@
     "componentNotFound": "The page that you're looking for was not found"
   },
   "footer": {
-    "authorName": "Sergey Vakhramov",
-    "authorNameDescription": "Author's Web-page (vakhramoff.ru)",
+    "authorName": "vakhramoff.ru",
+    "authorNameDescription": "Author's Web-page (Sergey Vakhramov)",
     "api": "API",
     "apiDescription": "Data Provider's API",
     "sourceCodeStart": "Git",
