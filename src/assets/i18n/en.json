@@ -40,7 +40,8 @@
     "authorNameDescription": "Author's Web-page (vakhramoff.ru)",
     "api": "API",
     "apiDescription": "Data Provider's API",
-    "sourceCode": "Github",
+    "sourceCodeStart": "Git",
+    "sourceCodeEnd": "hub",
     "sourceCodeDescription": "Source Code"
   }
 }
