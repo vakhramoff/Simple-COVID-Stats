@@ -1,6 +1,6 @@
 {
   "name": "covid-statistics",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -41,7 +41,7 @@
     "@angular/platform-browser-dynamic": "~11.2.4",
     "@angular/router": "~11.2.4",
     "@ngneat/transloco": "^2.19.1",
-    "@vakhramoff/angular-utils": "0.0.9",
+    "@vakhramoff/angular-utils": "^0.1.2",
     "ng-svg-icon-sprite": "^1.9.1",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.3",
