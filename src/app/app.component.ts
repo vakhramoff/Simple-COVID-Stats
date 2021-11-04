@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TranslocoService } from '@ngneat/transloco';
 import { Subscription } from 'rxjs';
-import { environment } from '../environments/environment';
+import { APP_TITLE_TOKEN } from './shared/tokens';
 
 export enum EAvailableAppLanguages {
   en = 'en',
@@ -20,13 +20,18 @@ export type TAppLanguage = EAvailableAppLanguages;
 export class AppComponent implements OnInit, OnDestroy {
   private translocoSub$: Subscription;
 
-  constructor(private translocoService: TranslocoService, private titleBarLocalizationService: Title) {}
+  constructor(
+    @Inject(APP_TITLE_TOKEN)
+    private readonly defaultAppTitle: string,
+    private readonly translocoService: TranslocoService,
+    private readonly titleBarLocalizationService: Title,
+  ) {}
 
   ngOnInit(): void {
     const browserLanguageCode = navigator.language;
+    const appTitle: string = this.defaultAppTitle;
 
     let appLanguage: TAppLanguage;
-    let appTitle: string = environment.initialAppTitle;
 
     switch (true) {
       case browserLanguageCode.startsWith(EAvailableAppLanguages.ru):
@@ -42,8 +47,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.setTitle(appTitle);
 
-    appLanguage = <TAppLanguage>this.translocoService.getActiveLang();
-    console.info('Automatically detected language', appLanguage);
+    appLanguage = this.translocoService.getActiveLang() as TAppLanguage;
+    console.info('Language set', appLanguage);
 
     this.translocoSub$ = this.translocoService.selectTranslate('commonAppVars.title').subscribe((translatedTitle: string) => {
       this.setTitle(translatedTitle);

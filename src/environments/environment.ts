@@ -4,8 +4,6 @@
 
 export const environment = {
   production: false,
-  covidApiUrl: 'https://corona.lmao.ninja/v3/covid-19',
-  initialAppTitle: 'COVID',
 };
 
 /*

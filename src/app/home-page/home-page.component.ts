@@ -12,7 +12,7 @@ import { CovidStatsService } from '../shared/services/covid-stats.service';
 export class HomePageComponent implements OnInit {
   public allStats$: Observable<AllStatisticInfo>;
 
-  constructor(private covidStatsService: CovidStatsService, private translocoService: TranslocoService) {}
+  constructor(private readonly covidStatsService: CovidStatsService, private readonly translocoService: TranslocoService) {}
 
   ngOnInit(): void {
     this.allStats$ = this.covidStatsService.getAll();

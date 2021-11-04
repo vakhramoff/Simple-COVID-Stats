@@ -1,5 +1,5 @@
 import { UpperCasePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
@@ -13,31 +13,27 @@ import { CovidStatsService } from '../shared/services/covid-stats.service';
   styleUrls: ['./country-page.component.sass'],
   providers: [UpperCasePipe],
 })
-export class CountryPageComponent implements OnInit {
-  public countryStat$: Observable<CountryStatisticInfo>;
-
+export class CountryPageComponent {
   private countryCode: string;
   private countryName: string;
 
-  constructor(
-    private covidStatsService: CovidStatsService,
-    private route: ActivatedRoute,
-    private upperCasePipe: UpperCasePipe,
-    private translocoService: TranslocoService,
-  ) {}
+  public readonly countryStat$: Observable<CountryStatisticInfo> = this.route.params.pipe(
+    switchMap((params: Params) => {
+      this.countryCode = this.upperCasePipe.transform(params.countryCode);
+      return this.covidStatsService.getByCountry(params.countryCode).pipe(
+        tap((countryData: CountryStatisticInfo) => {
+          this.countryName = countryData.country;
+        }),
+      );
+    }),
+  );
 
-  ngOnInit(): void {
-    this.countryStat$ = this.route.params.pipe(
-      switchMap((params: Params) => {
-        this.countryCode = this.upperCasePipe.transform(params.countryCode);
-        return this.covidStatsService.getByCountry(params.countryCode).pipe(
-          tap((countryData: CountryStatisticInfo) => {
-            this.countryName = countryData.country;
-          }),
-        );
-      }),
-    );
-  }
+  constructor(
+    private readonly covidStatsService: CovidStatsService,
+    private readonly route: ActivatedRoute,
+    private readonly upperCasePipe: UpperCasePipe,
+    private readonly translocoService: TranslocoService,
+  ) {}
 
   get activeLocale() {
     return this.translocoService.getActiveLang();
