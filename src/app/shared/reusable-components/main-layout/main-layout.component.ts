@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
+import { APP_TITLE_TOKEN } from '../../tokens';
 
 @Component({
   selector: 'shared-main-layout',
@@ -6,11 +7,12 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrls: ['./main-layout.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainLayoutComponent implements OnInit {
-  @Input() headerTitle = 'COVID';
-  @Input() headerSubTitle: string;
+export class MainLayoutComponent {
+  @Input() headerTitle = this.defaultAppTitle;
+  @Input() headerSubTitle!: string;
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(
+    @Inject(APP_TITLE_TOKEN)
+    private readonly defaultAppTitle: string,
+  ) {}
 }
