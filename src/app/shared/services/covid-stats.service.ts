@@ -16,7 +16,7 @@ export class CovidStatsService {
   ) {}
 
   @HandleHttpErrors()
-  public getAll(): Observable<AllStatisticInfo> {
+  getAll(): Observable<AllStatisticInfo> {
     return this.http.get<AllStatisticInfo>(`${this.apiConfig.covidApiUrl}/all`).pipe(
       tap((data) => {
         console.info('General statistics', data);
@@ -25,7 +25,7 @@ export class CovidStatsService {
   }
 
   @HandleHttpErrors()
-  public getByCountry(countryCode: string): Observable<CountryStatisticInfo> {
+  getByCountry(countryCode: string): Observable<CountryStatisticInfo> {
     return this.http.get<CountryStatisticInfo>(`${this.apiConfig.covidApiUrl}/countries/${countryCode}`).pipe(
       tap((data) => {
         console.info(`Statistics by country: ${countryCode}`, data);

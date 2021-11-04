@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
+import { APP_TITLE_TOKEN } from '../../tokens';
 
 enum EMenuStates {
   opened = 'opened',
@@ -33,15 +34,16 @@ type TMenuState = EMenuStates;
     ]),
   ],
 })
-export class HeaderLayoutComponent implements OnInit {
-  @Input() headerTitle = 'COVID';
-  @Input() headerSubTitle: string;
+export class HeaderLayoutComponent {
+  @Input() headerTitle = this.defaultAppTitle;
+  @Input() headerSubTitle!: string;
 
-  public menuState: TMenuState = EMenuStates.closed;
+  menuState: TMenuState = EMenuStates.closed;
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(
+    @Inject(APP_TITLE_TOKEN)
+    private readonly defaultAppTitle: string,
+  ) {}
 
   toggleMenu(): void {
     switch (this.menuState) {

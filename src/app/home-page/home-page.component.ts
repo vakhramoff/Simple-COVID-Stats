@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
 import { AllStatisticInfo } from '../shared/interfaces/all-statistic-info';
@@ -10,14 +10,10 @@ import { CovidStatsService } from '../shared/services/covid-stats.service';
   styleUrls: ['./home-page.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePageComponent implements OnInit {
-  public allStats$: Observable<AllStatisticInfo>;
+export class HomePageComponent {
+  readonly allStats$: Observable<AllStatisticInfo> = this.covidStatsService.getAll();
 
   constructor(private readonly covidStatsService: CovidStatsService, private readonly translocoService: TranslocoService) {}
-
-  ngOnInit(): void {
-    this.allStats$ = this.covidStatsService.getAll();
-  }
 
   get activeLocale() {
     return this.translocoService.getActiveLang();

@@ -1,7 +1,8 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TranslocoService } from '@ngneat/transloco';
-import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { APP_TITLE_TOKEN } from './shared/tokens';
 
 export enum EAvailableAppLanguages {
@@ -18,7 +19,7 @@ export type TAppLanguage = EAvailableAppLanguages;
   styleUrls: ['./app.component.sass'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  private translocoSub$: Subscription;
+  private readonly destroy$ = new Subject<void>();
 
   constructor(
     @Inject(APP_TITLE_TOKEN)
@@ -50,13 +51,21 @@ export class AppComponent implements OnInit, OnDestroy {
     appLanguage = this.translocoService.getActiveLang() as TAppLanguage;
     console.info('Language set', appLanguage);
 
-    this.translocoSub$ = this.translocoService.selectTranslate('commonAppVars.title').subscribe((translatedTitle: string) => {
-      this.setTitle(translatedTitle);
-    });
+    this.initTitleSubscription();
   }
 
   ngOnDestroy() {
-    this.translocoSub$?.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  private initTitleSubscription() {
+    this.translocoService
+      .selectTranslate('commonAppVars.title')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((translatedTitle: string) => {
+        this.setTitle(translatedTitle);
+      });
   }
 
   private setTitle(newTitle: string) {
