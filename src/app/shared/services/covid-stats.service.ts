@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { AllStatisticInfo } from '../interfaces/all-statistic-info';
 import { CountryStatisticInfo } from '../interfaces/country-statistic-info';
-import { ApiConfig, API_CONFIG_TOKEN } from '../tokens/api-config.token';
+import { ApiConfig, API_CONFIG_TOKEN } from '../tokens';
 
 @Injectable()
 export class CovidStatsService {
