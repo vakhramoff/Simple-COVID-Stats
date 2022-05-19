@@ -9,33 +9,65 @@ on:
     branches:
       - master
 jobs:
-  ci:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout ✅
+      - name: ✅ Checkout
         uses: actions/checkout@v2
 
-      - name: Setup 🏗
+      - name: 🏗 Setup
         uses: actions/setup-node@v2
         with:
           node-version: lts/*
           cache: 'npm'
 
-      - name: Install ⚙️
+      - name: ⚙️ Install
         run: npm ci
 
-      - name: Build 🛠
+      - name: 🛠 Build
         run: npm run build:production
 
-      - name: 📂 Upload static files to the server
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      - name: 📂 Upload build (to artifacts)
+        uses: actions/upload-artifact@v3
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          port: ${{ secrets.FTP_PORT }}
-          username: ${{ secrets.FTP_USER }}
+          name: covid-stats-front
+          path: ./dist/
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: 🖥 Download built WEB (to artifacts)
+        uses: actions/download-artifact@v3
+        with:
+          name: covid-stats-front
+
+#      - name: 🧻 Clean server folder
+#        uses: taylorgibb/ftp-clean@v2.0.3
+#        with:
+#          host: ${{ secrets.FTP_SERVER }}
+#          user: ${{ secrets.FTP_USER }}
+#          password: ${{ secrets.FTP_PASSWORD }}
+#          exclude: '["robots.txt", ".htaccess", ".."]'
+#
+#      - name: 📂 Upload static files to the server
+#        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+#        with:
+#          server: ${{ secrets.FTP_SERVER }}
+#          username: ${{ secrets.FTP_USER }}
+#          password: ${{ secrets.FTP_PASSWORD }}
+#          local-dir: ./covid/
+#          server-dir: ./
+#          exclude: |
+#            robots.txt
+#            .htaccess
+
+      - name: 📂 Upload static files to the server
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist
-          server-dir: ./test-static
-          exclude: |
-            robots.txt
-            .htaccess
+          localDir: ./covid/
+          remoteDir: ./
+          options: --delete --delete-first --ascii --exclude .htaccess robots.txt
