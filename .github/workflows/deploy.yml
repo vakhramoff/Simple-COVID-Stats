@@ -1,11 +1,7 @@
 # Based on https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml
-name: CI
-#on:
-#  push:
-#    branches:
-#      - master
+name: Deploy to web hosting
 on:
-  pull_request:
+  push:
     branches:
       - master
 jobs:
@@ -42,26 +38,6 @@ jobs:
         with:
           name: covid-stats-front
 
-#      - name: 🧻 Clean server folder
-#        uses: taylorgibb/ftp-clean@v2.0.3
-#        with:
-#          host: ${{ secrets.FTP_SERVER }}
-#          user: ${{ secrets.FTP_USER }}
-#          password: ${{ secrets.FTP_PASSWORD }}
-#          exclude: '["robots.txt", ".htaccess", ".."]'
-#
-#      - name: 📂 Upload static files to the server
-#        uses: SamKirkland/FTP-Deploy-Action@4.3.0
-#        with:
-#          server: ${{ secrets.FTP_SERVER }}
-#          username: ${{ secrets.FTP_USER }}
-#          password: ${{ secrets.FTP_PASSWORD }}
-#          local-dir: ./covid/
-#          server-dir: ./
-#          exclude: |
-#            robots.txt
-#            .htaccess
-
       - name: 📂 Upload static files to the server
         uses: sebastianpopp/ftp-action@releases/v2
         with:
@@ -70,4 +46,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           localDir: ./covid/
           remoteDir: ./
-          options: --delete --delete-first --ascii --exclude .htaccess robots.txt
+          options: --exclude .htaccess --exclude robots.txt --delete --delete-first --ascii
