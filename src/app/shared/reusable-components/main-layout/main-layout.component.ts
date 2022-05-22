@@ -8,8 +8,11 @@ import { APP_TITLE_TOKEN } from '../../tokens';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainLayoutComponent {
-  @Input() headerTitle = this.defaultAppTitle;
-  @Input() headerSubTitle!: string;
+  @Input()
+  headerTitle = this.defaultAppTitle;
+
+  @Input()
+  headerSubTitle!: string;
 
   constructor(
     @Inject(APP_TITLE_TOKEN)

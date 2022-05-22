@@ -2,12 +2,12 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { APP_TITLE_TOKEN } from '../../tokens';
 
-enum EMenuStates {
-  opened = 'opened',
-  closed = 'closed',
+enum MenuStates {
+  Opened = 'OPENED',
+  Closed = 'CLOSED',
 }
 
-type TMenuState = EMenuStates;
+type MenuState = MenuStates;
 
 @Component({
   selector: 'shared-header-layout',
@@ -17,28 +17,31 @@ type TMenuState = EMenuStates;
   animations: [
     trigger('toggleMenu', [
       state(
-        EMenuStates.closed,
+        MenuStates.Closed,
         style({
           transform: 'scaleY(0)',
           height: '0px',
         }),
       ),
       state(
-        EMenuStates.opened,
+        MenuStates.Opened,
         style({
           transform: 'scaleY(1)',
         }),
       ),
-      transition(`${EMenuStates.opened} => ${EMenuStates.closed}`, [animate('300ms ease-in-out')]),
-      transition(`${EMenuStates.closed} => ${EMenuStates.opened}`, [animate('300ms ease-in-out')]),
+      transition(`${MenuStates.Opened} => ${MenuStates.Closed}`, [animate('300ms ease-in-out')]),
+      transition(`${MenuStates.Closed} => ${MenuStates.Opened}`, [animate('300ms ease-in-out')]),
     ]),
   ],
 })
 export class HeaderLayoutComponent {
-  @Input() headerTitle = this.defaultAppTitle;
-  @Input() headerSubTitle!: string;
+  @Input()
+  headerTitle = this.defaultAppTitle;
 
-  menuState: TMenuState = EMenuStates.closed;
+  @Input()
+  headerSubTitle!: string;
+
+  menuState: MenuState = MenuStates.Closed;
 
   constructor(
     @Inject(APP_TITLE_TOKEN)
@@ -47,11 +50,11 @@ export class HeaderLayoutComponent {
 
   toggleMenu(): void {
     switch (this.menuState) {
-      case EMenuStates.closed:
-        this.menuState = EMenuStates.opened;
+      case MenuStates.Closed:
+        this.menuState = MenuStates.Opened;
         break;
-      case EMenuStates.opened:
-        this.menuState = EMenuStates.closed;
+      case MenuStates.Opened:
+        this.menuState = MenuStates.Closed;
         break;
     }
   }
