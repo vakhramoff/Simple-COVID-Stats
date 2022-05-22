@@ -1,22 +1,21 @@
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TranslocoService } from '@ngneat/transloco';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { APP_TITLE_TOKEN } from './shared/tokens';
 
-export enum EAvailableAppLanguages {
-  en = 'en',
-  ru = 'ru',
-  de = 'de',
+export enum AvailableAppLanguages {
+  English = 'en',
+  Russian = 'ru',
+  German = 'de',
 }
-
-export type TAppLanguage = EAvailableAppLanguages;
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.sass'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
@@ -29,37 +28,38 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    const browserLanguageCode = navigator.language;
-    const appTitle: string = this.defaultAppTitle;
+    const checkBrowserLanguage = (language: AvailableAppLanguages) => {
+      const browserLanguageCode = navigator.language.toLocaleLowerCase();
 
-    let appLanguage: TAppLanguage;
+      return browserLanguageCode.startsWith(language);
+    };
 
     switch (true) {
-      case browserLanguageCode.startsWith(EAvailableAppLanguages.ru):
-        this.translocoService.setActiveLang(EAvailableAppLanguages.ru);
+      case checkBrowserLanguage(AvailableAppLanguages.Russian):
+        this.translocoService.setActiveLang(AvailableAppLanguages.Russian);
         break;
-      case browserLanguageCode.startsWith(EAvailableAppLanguages.de):
-        this.translocoService.setActiveLang(EAvailableAppLanguages.de);
+      case checkBrowserLanguage(AvailableAppLanguages.German):
+        this.translocoService.setActiveLang(AvailableAppLanguages.German);
         break;
       default:
-        this.translocoService.setActiveLang(EAvailableAppLanguages.en);
+        this.translocoService.setActiveLang(AvailableAppLanguages.English);
         break;
     }
 
-    this.setTitle(appTitle);
+    this.setTitle(this.defaultAppTitle);
 
-    appLanguage = this.translocoService.getActiveLang() as TAppLanguage;
-    console.info('Language set', appLanguage);
+    console.info('App title set', this.defaultAppTitle);
+    console.info('Language set', this.translocoService.getActiveLang());
 
     this.initTitleSubscription();
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }
 
-  private initTitleSubscription() {
+  private initTitleSubscription(): void {
     this.translocoService
       .selectTranslate('commonAppVars.title')
       .pipe(takeUntil(this.destroy$))
@@ -68,7 +68,7 @@ export class AppComponent implements OnInit, OnDestroy {
       });
   }
 
-  private setTitle(newTitle: string) {
+  private setTitle(newTitle: string): void {
     this.titleBarLocalizationService.setTitle(newTitle);
   }
 }
