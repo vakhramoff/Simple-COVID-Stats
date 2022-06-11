@@ -8,7 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CountryPageComponent } from './country-page/country-page.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { CovidStatsService } from './shared/services/covid-stats.service';
 import { SharedModule } from './shared/shared.module';
@@ -19,7 +18,7 @@ registerLocaleData(localeRussian, 'ru');
 registerLocaleData(localeGerman, 'de');
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, CountryPageComponent, ErrorPageComponent],
+  declarations: [AppComponent, HomePageComponent, CountryPageComponent],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, SharedModule, HttpClientModule, TranslocoRootModule],
   providers: [
     CovidStatsService,
