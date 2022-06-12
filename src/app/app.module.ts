@@ -7,19 +7,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CountryPageComponent } from './country-page/country-page.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { CovidStatsService } from './shared/services/covid-stats.service';
-import { SharedModule } from './shared/shared.module';
-import { API_CONFIG_TOKEN } from './shared/tokens';
-import { TranslocoRootModule } from './transloco/transloco-root.module';
+import { CovidStatsService } from './data-access';
+import { API_CONFIG_TOKEN, TranslocoRootModule } from './utils/';
 
 registerLocaleData(localeRussian, 'ru');
 registerLocaleData(localeGerman, 'de');
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, CountryPageComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, SharedModule, HttpClientModule, TranslocoRootModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule, TranslocoRootModule],
   providers: [
     CovidStatsService,
     {

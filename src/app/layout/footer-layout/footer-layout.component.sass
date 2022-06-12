@@ -1,0 +1,44 @@
+@import '../../../styles'
+
+.footer-layout
+  +light-on-dark
+  font-family: $font-secondary
+  display: flex
+  align-items: center
+  flex-shrink: 0
+  padding: 0.5rem 1rem
+  z-index: 1
+  width: 100%
+  opacity: 0.9
+  border-bottom: 1px solid $color-dark
+
+  *
+    font-weight: $font-weight-regular
+
+.footer-layout__title
+  font-size: $font-size-medium
+
+.footer-layout__links
+  height: 100%
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-evenly
+  flex-grow: 1
+  list-style-type: none
+  padding: 0 env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)
+
+.footer-layout__link
+  +truncated-text
+  width: 100%
+  text-decoration: none
+  color: $color-accent
+
+  &:hover > *
+    color: $color-light
+
+.footer-layout__link > h3
+  display: inline-block
+
+.footer-layout__link--pornhubbed
+  +dark-on-accent
+  border-radius: 3px
