@@ -6,7 +6,7 @@ export type CardType = 'normal' | 'danger' | 'warning' | 'success';
 type CardWrapperClass = `covid-data-card covid-data-card--${CardType}`;
 
 @Component({
-  selector: 'shared-data-card',
+  selector: 'data-card',
   templateUrl: './data-card.component.html',
   styleUrls: ['./data-card.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,

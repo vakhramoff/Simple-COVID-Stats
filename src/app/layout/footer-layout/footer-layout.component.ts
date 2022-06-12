@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
-  selector: 'shared-footer-layout',
+  selector: 'footer-layout',
   templateUrl: './footer-layout.component.html',
   styleUrls: ['./footer-layout.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,
