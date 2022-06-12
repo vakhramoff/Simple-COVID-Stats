@@ -4,7 +4,7 @@ import { FooterLayoutComponent } from '../footer-layout/footer-layout.component'
 import { HeaderLayoutComponent } from '../header-layout/header-layout.component';
 
 @Component({
-  selector: 'shared-main-layout',
+  selector: 'main-layout',
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -13,7 +13,7 @@ enum MenuStates {
 type MenuState = MenuStates;
 
 @Component({
-  selector: 'shared-header-layout',
+  selector: 'header-layout',
   templateUrl: './header-layout.component.html',
   styleUrls: ['./header-layout.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush,
