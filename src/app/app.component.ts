@@ -3,7 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { TranslocoService } from '@ngneat/transloco';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { APP_TITLE_TOKEN } from './shared/tokens';
+import { APP_TITLE_TOKEN } from './utils';
 
 export enum AvailableAppLanguages {
   English = 'en',
