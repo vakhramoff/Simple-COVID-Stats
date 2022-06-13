@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Self } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
-import { PipesModule } from '@vakhramoff/angular-utils';
+import { ToLocaleStringPipe } from '@vakhramoff/angular-utils';
 import { Observable } from 'rxjs';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { CountryStatisticInfo, CovidStatsService } from '../../data-access/';
@@ -16,7 +16,7 @@ import { DestroyService } from '../../utils/services/destroy.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [DestroyService],
   standalone: true,
-  imports: [CommonModule, DataCardComponent, MainLayoutComponent, TranslocoModule, PipesModule],
+  imports: [CommonModule, DataCardComponent, MainLayoutComponent, ToLocaleStringPipe, TranslocoModule],
 })
 export class CountryPageComponent {
   private countryCode!: string | null;
